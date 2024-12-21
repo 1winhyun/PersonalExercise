@@ -13,7 +13,7 @@ public class PostService {
     private final PostRepository postRepository;
 
     public Article save(PostRequestDTO requestDTO){
-        return postRepository.save(requestDTO.from());
+        return postRepository.save(requestDTO.make());
     }
 
     public List<Article> findAll(){

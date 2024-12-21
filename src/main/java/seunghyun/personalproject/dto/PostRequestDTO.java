@@ -16,7 +16,7 @@ public class PostRequestDTO {
     private String title;
     private String content;
 
-    public Article from(){
+    public Article make(){
         return Article.builder()
                 .title(title)
                 .content(content)
