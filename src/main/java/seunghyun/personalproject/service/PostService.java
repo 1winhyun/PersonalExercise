@@ -1,5 +1,6 @@
 package seunghyun.personalproject.service;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import seunghyun.personalproject.domain.Article;
@@ -13,5 +14,9 @@ public class PostService {
 
     public Article save(PostRequestDTO requestDTO){
         return postRepository.save(requestDTO.from());
+    }
+
+    public List<Article> findAll(){
+        return postRepository.findAll();
     }
 }
