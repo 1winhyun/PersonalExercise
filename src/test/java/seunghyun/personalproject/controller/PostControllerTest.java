@@ -1,13 +1,11 @@
 package seunghyun.personalproject.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,9 +17,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-import seunghyun.personalproject.domain.Article;
-import seunghyun.personalproject.dto.PostRequestDTO;
-import seunghyun.personalproject.repository.PostRepository;
+import seunghyun.personalproject.article.domain.Article;
+import seunghyun.personalproject.article.dto.PostRequestDTO;
+import seunghyun.personalproject.article.repository.PostRepository;
 
 @SpringBootTest
 @AutoConfigureMockMvc

@@ -1,4 +1,4 @@
-package seunghyun.personalproject.controller;
+package seunghyun.personalproject.article.controller;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import seunghyun.personalproject.domain.Article;
-import seunghyun.personalproject.dto.PostRequestDTO;
-import seunghyun.personalproject.dto.PostResponseDTO;
-import seunghyun.personalproject.service.PostService;
+import seunghyun.personalproject.article.domain.Article;
+import seunghyun.personalproject.article.dto.PostGetAllResponseDTO;
+import seunghyun.personalproject.article.dto.PostGetOneResponseDTO;
+import seunghyun.personalproject.article.dto.PostRequestDTO;
+import seunghyun.personalproject.article.service.PostService;
 
 @RestController
 @RequiredArgsConstructor
@@ -32,20 +33,20 @@ public class PostController {
     }
 
     @GetMapping
-    public ResponseEntity<List<PostResponseDTO>>findAllPosts(){
-        List<PostResponseDTO>posts=postService.findAll()
+    public ResponseEntity<List<PostGetAllResponseDTO>>findAllPosts(){
+        List<PostGetAllResponseDTO>posts=postService.findAll()
                 .stream()
-                .map(PostResponseDTO::from)
+                .map(PostGetAllResponseDTO::from)
                 .collect(Collectors.toList());
         return ResponseEntity.ok()
                 .body(posts);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PostResponseDTO>findPostById(@PathVariable Long id){
+    public ResponseEntity<PostGetOneResponseDTO>findPostById(@PathVariable Long id){
         Article post=postService.findById(id);
         return ResponseEntity.ok()
-                .body(PostResponseDTO.from(post));
+                .body(PostGetOneResponseDTO.from(post));
     }
 
     @DeleteMapping("/{id}")

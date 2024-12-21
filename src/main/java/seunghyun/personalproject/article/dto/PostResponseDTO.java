@@ -1,11 +1,11 @@
-package seunghyun.personalproject.dto;
+package seunghyun.personalproject.article.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import seunghyun.personalproject.domain.Article;
+import seunghyun.personalproject.article.domain.Article;
 
 @Getter
 @Setter

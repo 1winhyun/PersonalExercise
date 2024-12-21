@@ -1,12 +1,11 @@
-package seunghyun.personalproject.service;
+package seunghyun.personalproject.article.service;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import seunghyun.personalproject.domain.Article;
-import seunghyun.personalproject.dto.PostRequestDTO;
-import seunghyun.personalproject.dto.PostResponseDTO;
-import seunghyun.personalproject.repository.PostRepository;
+import seunghyun.personalproject.article.domain.Article;
+import seunghyun.personalproject.article.dto.PostRequestDTO;
+import seunghyun.personalproject.article.repository.PostRepository;
 
 @Service
 @RequiredArgsConstructor
