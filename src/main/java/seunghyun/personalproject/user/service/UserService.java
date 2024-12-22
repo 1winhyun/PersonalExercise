@@ -13,7 +13,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public User addUser(AddUserRequestDTO requestDTO){
+    public User signup(AddUserRequestDTO requestDTO){
         User user=requestDTO.make();
         user.setPassword(bCryptPasswordEncoder.encode(requestDTO.getPassword()));
         return userRepository.save(user);
