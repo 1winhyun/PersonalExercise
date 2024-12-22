@@ -21,7 +21,7 @@ import seunghyun.personalproject.user.service.UserDetailService;
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class WebSecurityConfig {
-    private final UserDetailService userDetailService;
+    private final UserDetailService userService;
 
     @Bean
     public WebSecurityCustomizer configure(){
@@ -53,7 +53,7 @@ public class WebSecurityConfig {
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity http, BCryptPasswordEncoder bCryptPasswordEncoder,UserDetailService userDetailService) throws Exception{
         DaoAuthenticationProvider authProvider=new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(userDetailService);
+        authProvider.setUserDetailsService(userService);
         authProvider.setPasswordEncoder(bCryptPasswordEncoder);
         return new ProviderManager(authProvider);
     }
