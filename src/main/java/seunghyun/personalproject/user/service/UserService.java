@@ -18,4 +18,9 @@ public class UserService {
         user.setPassword(bCryptPasswordEncoder.encode(requestDTO.getPassword()));
         return userRepository.save(user);
     }
+
+    public User findById(Long userId){
+        return userRepository.findById(userId)
+                .orElseThrow(()->new IllegalArgumentException("unexpected user"));
+    }
 }
