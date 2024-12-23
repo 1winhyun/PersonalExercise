@@ -11,6 +11,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import seunghyun.personalproject.user.domain.User;
 import seunghyun.personalproject.user.repository.UserRepository;
 
@@ -43,5 +45,19 @@ class TokenProviderTest {
         assertThat(userId).isEqualTo(testUser.getId());
         log.info("userId={}",userId);
         log.info("testId={}",testUser.getId());
+    }
+
+    @DisplayName("토큰 기반 인증 정보 가져오기")
+    @Test
+    void getAuthentication(){
+        String userEmail="jimking1@naver.com";
+        String token=JwtFactory.builder()
+                .subject(userEmail)
+                .build()
+                .createToken(jwtProperties);
+
+        Authentication authentication= tokenProvider.getAuthentication(token);
+        assertThat(((UserDetails)authentication.getPrincipal()).getUsername()).isEqualTo(userEmail);
+        log.info("useremail={}",((UserDetails) authentication.getPrincipal()).getUsername());
     }
 }
