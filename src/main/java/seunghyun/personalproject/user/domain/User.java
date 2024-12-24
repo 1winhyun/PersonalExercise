@@ -51,6 +51,9 @@ public class User implements UserDetails {
     @Column(name="updated_at",nullable = false)
     private LocalDateTime updatedAt;
 
+    @Column(name="nickname",unique = true)
+    private String nickname;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities(){
         return List.of(new SimpleGrantedAuthority("user"));
