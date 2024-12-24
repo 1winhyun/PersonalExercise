@@ -1,4 +1,4 @@
-package seunghyun.personalproject.user.config;
+/*package seunghyun.personalproject.user.config;
 
 import static org.springframework.boot.autoconfigure.security.servlet.PathRequest.toH2Console;
 
@@ -63,3 +63,4 @@ public class WebSecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
+*/
