@@ -48,10 +48,10 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         getRedirectStrategy().sendRedirect(request,response,targetUrl);
     }
 
-    private void saveRefreshToken(Long userId,String refreshToken){
-        RefreshToken refreshToken1=refreshTokenRepository.findByUserId(userId)
-                .map(entity->entity.update(refreshToken))
-                .orElse(new RefreshToken(userId,refreshToken));
+    private void saveRefreshToken(Long userId,String token){
+        RefreshToken refreshToken=refreshTokenRepository.findByUserId(userId)
+                .map(entity->entity.update(token))
+                .orElse(new RefreshToken(userId,token));
     }
 
     private void addRefreshTokenToCookie(HttpServletRequest request,HttpServletResponse response,String refreshToken){
