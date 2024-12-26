@@ -11,12 +11,17 @@ import seunghyun.personalproject.user.repository.UserRepository;
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public User signup(AddUserRequestDTO requestDTO){
-        User user=requestDTO.make();
+    public Long signup(AddUserRequestDTO requestDTO){
+        /*User user=requestDTO.make();
         user.setPassword(bCryptPasswordEncoder.encode(requestDTO.getPassword()));
-        return userRepository.save(user);
+        return userRepository.save(user);*/
+
+        BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+        return userRepository.save(User.builder()
+                .email(requestDTO.getEmail())
+                .password(encoder.encode(requestDTO.getPassword()))
+                .build()).getId();
     }
 
     public User findById(Long userId){
