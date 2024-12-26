@@ -17,6 +17,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import seunghyun.personalproject.user.config.jwt.TokenProvider;
 import seunghyun.personalproject.user.config.oauth.OAuth2AuthorizationRequestBasedOnCookieRepository;
+import seunghyun.personalproject.user.config.oauth.OAuth2SuccessHandler;
 import seunghyun.personalproject.user.config.oauth.OAuth2UserCustomService;
 import seunghyun.personalproject.user.repository.RefreshTokenRepository;
 import seunghyun.personalproject.user.service.UserService;
