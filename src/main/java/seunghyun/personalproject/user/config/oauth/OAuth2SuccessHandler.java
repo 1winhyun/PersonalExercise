@@ -52,6 +52,7 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         RefreshToken refreshToken=refreshTokenRepository.findByUserId(userId)
                 .map(entity->entity.update(token))
                 .orElse(new RefreshToken(userId,token));
+        refreshTokenRepository.save(refreshToken);
     }
 
     private void addRefreshTokenToCookie(HttpServletRequest request,HttpServletResponse response,String refreshToken){
